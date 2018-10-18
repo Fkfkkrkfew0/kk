@@ -20,7 +20,7 @@ bot = commands.Bot(command_prefix='!')
     print("Bot Is Online! And Ready To Spam")
  
 bot.command(pass_context=True)
- def spammed(ctx):
+
     await bot.say("Hi There!")
     time.sleep(2)
     for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
