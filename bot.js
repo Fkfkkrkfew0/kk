@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix='!')
     print("ID: " + bot.user.id)
     print("Bot Is Online! And Ready To Spam")
  
-@bot.command(pass_context=True)
+bot.command(pass_context=True)
 async def spammed(ctx):
     await bot.say("Hi There!")
     time.sleep(2)
