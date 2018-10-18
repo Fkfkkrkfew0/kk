@@ -9,7 +9,7 @@ setInterval(function() {
 
  
 channel.send(`شهد `);
-}, 25)
+}, 99)
 })
  
  
