@@ -1,10 +1,14 @@
-import discord
-from discord.ext.commands import bot
-from discord.ext import commands
-import random
-import asyncio
-import time
+const Discord = require('discord.js');
+const client = new Discord.Client();
  
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+
+
+
+
  
 bot = commands.Bot(command_prefix='!')
  
