@@ -7,7 +7,7 @@ client.on("ready", () => {
 let channel =     client.channels.get("490591334575636482")
 setInterval(function() {
 
- for i in range (0,100):
+  range (0,100):
  
 channel.send(`شهد `);
 }, 25)
