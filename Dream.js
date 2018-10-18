@@ -118,6 +118,6 @@ client.on('message', msg => {
 
 
 
-client.login('NDkxMTQxODE1MjI4MDM5MTgy.DqqW-A.t0INznvy1J6VR6dZZoBQiYtAJ1w');
+client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
 
 
