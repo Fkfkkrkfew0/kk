@@ -1,151 +1,25 @@
-﻿const Discord = require('discord.js');
-const client = new Discord.Client();
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-
-
-
-
-
-
-
-var ALPHACODES = {};
-client.on('guildMemberRemove', member => {
-ALPHACODES[member.id] = {roles: member.roles.array()};
-});
-client.on('guildMemberAdd', member => {
-if(!ALPHACODES[member.user.id]) return;
-console.log(ALPHACODES[member.user.id].roles.length);
-for(let i = 0; i < ALPHACODES[member.user.id].roles.length + 1; i++) {
-member.addRole(ALPHACODES[member.user.id].roles.shift());
-}
-});
-
-if(!prefix) var prefix = "#"
-
-
-
-
-
-
-
-
-
-
-
-
-
-const moment = require("moment");  
-const fs = require("fs");      
-const dateFormat = require('dateformat');
-const Canvas = require("canvas");
-let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
-client.on("message", message => {
- 
-  if (message.author.bot) return;
-  if(!message.channel.guild)return;
-  if (!profile[message.author.id]) profile[message.author.id] = {
-    tite: 'Super User',
-    rep: 0,
-    reps: 'NOT YET',
-    lastDaily:'Not Collected',
-    level: 0,
-    points: 0,
-    credits: 150,
-  };
+import discord
+from discord.ext.commands import bot
+from discord.ext import commands
+import random
+import asyncio
+import time
  
  
-fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
-if (err) console.error(err);
-})
-});
+bot = commands.Bot(command_prefix='!')
  
+@bot.event
+async def on_ready():
+    print("Bot Is Starting Up... Please Wait")
+    print("Name: " + bot.user.name)
+    print("ID: " + bot.user.id)
+    print("Bot Is Online! And Ready To Spam")
  
+@bot.command(pass_context=True)
+async def spammed(ctx):
+    await bot.say("Hi There!")
+    time.sleep(2)
+    for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
+        await bot.say("")
  
-client.on("message", (message) => {
-  let men = message.mentions.users.first()
- 
-  if (message.author.bot) return;
-    if (message.author.id === client.user.id) return;
-    if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + 'credit')) {
-  if(men) {
-    if (!profile[men.id]) profile[men.id] = {
-    lastDaily:'Not Collected',
-    credits: 1,
-  };
-  }
-  if(men) {
-message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${profile[men.id].credits}$` + "`.**")
-} else {
-  message.channel.send(`** ${message.author.username}, your :credit_card: balance` + " is `" + `${profile[message.author.id].credits}$` + "`.**")
-}
-}
- 
-if(message.content.startsWith(prefix + "daily")) {
-  if(profile[message.author.id].lastDaily != moment().format('day')) {
-    profile[message.author.id].lastDaily = moment().format('day')
-    profile[message.author.id].credits += 160
-     message.channel.send(`**${message.author.username} you collect your \`160\` :dollar: daily pounds**`)
-} else {
-    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
-}
-  }
-let cont = message.content.slice(prefix.length).split(" ");
-let args = cont.slice(1);
-let sender = message.author
-if(message.content.startsWith(prefix + 'trans')) {
-          if (!args[0]) {
-            message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
-         return;
-           }
-        // We should also make sure that args[0] is a number
-        if (isNaN(args[0])) {
-            message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
-            return; // Remember to return if you are sending an error message! So the rest of the code doesn't run.
-             }
-            let defineduser = '';
-            let firstMentioned = message.mentions.users.first();
-            defineduser = (firstMentioned)
-            if (!defineduser) return message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
-            var mentionned = message.mentions.users.first();
-if (!profile[sender.id]) profile[sender.id] = {}
-if (!profile[sender.id].credits) profile[sender.id].credits = 200;
-fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
-if (err) console.error(err);
-})
-      var mando = message.mentions.users.id;
-      if  (!profile[defineduser.id]) profile[defineduser.id] = {}
-      if (!profile[defineduser.id].credits) profile[defineduser.id].credits = 200;
-      profile[defineduser.id].credits += (+args[0]);
-      profile[sender.id].credits += (-args[0]);
-      let mariam = message.author.username
-message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ` + "`" + args[0] + "$` to " + `<@${defineduser.id}>**`)
-}
- 
-      });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
-
-
+bot.run ("your bot token here")
