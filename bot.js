@@ -13,7 +13,7 @@ client.on('ready', () => {
 bot = commands.Bot(command_prefix='!')
  
 
-async def on_ready():
+
     print("Bot Is Starting Up... Please Wait")
     print("Name: " + bot.user.name)
     print("ID: " + bot.user.id)
@@ -26,4 +26,4 @@ async def spammed(ctx):
     for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
         await bot.say("hi noob")
  
-bot.run ("NDkxMTQxODE1MjI4MDM5MTgy.DqqW-A.t0INznvy1J6VR6dZZoBQiYtAJ1w")
+client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
