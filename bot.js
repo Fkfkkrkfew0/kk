@@ -28,7 +28,7 @@ channel.send(`نوفرج نوفرج نوفرج نوفرج نوفرج نوفرج 
 
 
 
-        var prefix = "$";
+        var prefix = "s";
     client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -38,7 +38,7 @@ channel.send(`نوفرج نوفرج نوفرج نوفرج نوفرج نوفرج 
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "spam") {
+  if (command == "s") {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR**');
 
 
